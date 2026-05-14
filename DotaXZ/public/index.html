@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>MyDotabuff</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1 onclick="showSection('searchSection')">MyDotabuff</h1>
+        <div class="nav-links" id="navLinks">
+            <!-- Ссылки появятся через JS -->
+        </div>
+    </div>
+
+    <!-- РАЗДЕЛ: АВТОРИЗАЦИЯ -->
+    <div id="authSection" class="content-section">
+        <div class="search-container" style="max-width: 400px; margin: 40px auto; background: #1F2937; padding: 30px; border-radius: 12px;">
+            <h2 id="authTitle">Вход в аккаунт</h2>
+            <input type="text" id="authUsername" placeholder="Логин" style="width: 90%; margin-bottom: 15px;"><br>
+            <input type="password" id="authPassword" placeholder="Пароль" style="width: 90%; margin-bottom: 15px;"><br>
+            <input type="text" id="authSteamId" placeholder="Ваш Steam ID32 (Только для регистрации)" style="width: 90%; margin-bottom: 15px; display: none;"><br>
+            
+            <button id="authBtn" onclick="login()" style="width: 98%; margin-bottom: 15px;">Войти</button>
+            <p style="color: #94A3B8; cursor: pointer; text-decoration: underline;" onclick="toggleAuthMode()">Нет аккаунта? Зарегистрироваться</p>
+        </div>
+    </div>
+
+    <!-- РАЗДЕЛ 1: ПОИСК -->
+    <div id="searchSection" class="content-section active">
+        <div class="search-container">
+            <h2>Найти игрока</h2>
+            <input type="text" id="searchInput" placeholder="Введите ник (например: Dendi)">
+            <button onclick="searchPlayer()">Искать</button>
+        </div>
+        <div id="searchResults"></div>
+    </div>
+
+    <!-- РАЗДЕЛ 2: ПРОФИЛЬ ИГРОКА -->
+    <div id="profileSection" class="content-section">
+        <div class="profile-header">
+            <img id="pAvatar" src="" alt="Аватар">
+            <div>
+                <h2 id="pName">Загрузка...</h2>
+                <div class="stats-box">
+                    <span class="win">Побед: <span id="pWins">0</span></span>
+                    <span class="loss">Поражений: <span id="pLosses">0</span></span>
+                    <span style="color: #F59E0B;">Винрейт: <span id="pWinrate">0</span>%</span>
+                </div>
+            </div>
+        </div>
+        <h3>Топ-5 лучших героев</h3>
+        <table style="margin-bottom: 30px;">
+            <thead><tr><th>Герой</th><th>Имя</th><th>Сыграно игр</th><th>Винрейт</th></tr></thead>
+            <tbody id="topHeroesTable"></tbody>
+        </table>
+        <h3>Последние матчи</h3>
+        <table>
+            <thead><tr><th>Герой</th><th>ID Матча</th><th>K / D / A</th><th>Итог</th></tr></thead>
+            <tbody id="matchTable"></tbody>
+        </table>
+    </div>
+
+    <!-- РАЗДЕЛ 3: МЕТА ГЕРОЕВ -->
+    <div id="metaSection" class="content-section">
+        <h2>Статистика героев в текущем патче (Pro Tracker)</h2>
+        <table>
+            <thead><tr><th>Герой</th><th>Имя</th><th>Винрейт</th><th>Частота Пиков</th><th>Частота Банов</th></tr></thead>
+            <tbody id="metaTable"></tbody>
+        </table>
+    </div>
+
+    <!-- РАЗДЕЛ 4: ДЕТАЛИ МАТЧА -->
+    <div id="matchDetailsSection" class="content-section">
+        <button onclick="showSection('profileSection')" style="margin-bottom: 20px; background: #4B5563;">⬅ Назад в профиль</button>
+        <h2 id="matchTitle">Матч загружается...</h2>
+        <h3 style="color: #10B981;">Команда Света (Radiant)</h3>
+        <table>
+            <thead><tr><th>Герой</th><th>Игрок</th><th>K / D / A</th><th>Урон</th><th>Золото</th><th>Предметы</th></tr></thead>
+            <tbody id="radiantTable"></tbody>
+        </table>
+        <h3 style="color: #EF4444; margin-top: 40px;">Команда Тьмы (Dire)</h3>
+        <table>
+            <thead><tr><th>Герой</th><th>Игрок</th><th>K / D / A</th><th>Урон</th><th>Золото</th><th>Предметы</th></tr></thead>
+            <tbody id="direTable"></tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

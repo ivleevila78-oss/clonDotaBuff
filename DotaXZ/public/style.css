@@ -1,0 +1,50 @@
+body {
+    margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0B0F19; color: #E2E8F0;
+}
+/* Шапка сайта */
+.navbar {
+    background-color: #111827; padding: 15px 30px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 2px solid #3B82F6;
+}
+.navbar h1 { margin: 0; color: #3B82F6; cursor: pointer; }
+.nav-links span { margin-left: 20px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+.nav-links span:hover { color: #3B82F6; }
+
+/* Поиск */
+.search-container { text-align: center; margin: 40px; }
+input { padding: 12px; width: 300px; border-radius: 6px; border: 1px solid #3B82F6; background: #1F2937; color: white; }
+button { padding: 12px 20px; background: #3B82F6; color: white; border: none; border-radius: 6px; cursor: pointer; }
+button:hover { background: #2563EB; }
+
+/* Карточки игроков и таблица */
+.content-section { display: none; max-width: 900px; margin: 0 auto; padding: 20px; }
+.active { display: block; }
+
+.player-card { background: #1F2937; padding: 15px; margin: 10px 0; border-radius: 8px; display: flex; align-items: center; gap: 15px; cursor: pointer; transition: 0.2s; }
+.player-card:hover { background: #374151; }
+.player-card img { width: 50px; border-radius: 50%; }
+
+/* Профиль */
+.profile-header { display: flex; align-items: center; gap: 20px; background: #1F2937; padding: 20px; border-radius: 12px; margin-bottom: 20px;}
+.profile-header img { width: 100px; border-radius: 50%; border: 3px solid #10B981; }
+.stats-box { display: flex; gap: 20px; font-size: 20px; font-weight: bold; }
+.win { color: #10B981; } .loss { color: #EF4444; }
+
+table { width: 100%; border-collapse: collapse; background: #1F2937; border-radius: 8px; overflow: hidden; }
+th, td { padding: 12px; text-align: left; border-bottom: 1px solid #374151; }
+th { background: #111827; }
+
+.match-row { cursor: pointer; transition: 0.2s; }
+.match-row:hover { background-color: #374151; }
+
+.item-img { 
+    width: 35px; height: 25px; 
+    border-radius: 4px; 
+    margin-right: 3px; 
+    background-color: #111827; /* Фон для пустых слотов */
+    display: inline-block;
+    border: 1px solid #374151;
+}
+.neutral-item { border-radius: 50%; width: 28px; height: 28px; border: 1px solid #F59E0B; }
